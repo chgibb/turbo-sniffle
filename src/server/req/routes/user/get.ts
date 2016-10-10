@@ -1,5 +1,5 @@
-import getUser from "./../../getUser";
-import User from "./../../user";
+import getUser from "./../../models/user/getUser";
+import User from "./../../models/user/user";
 export default function get(req : any, res : any) : void
 {
     if(req.query.User_ID)

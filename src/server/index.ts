@@ -6,6 +6,8 @@ var sqlite3 = require('sqlite3').verbose();
 //First-party Typescript dependencies
 import postUser from "./req/routes/user/post";
 import getUser from "./req/routes/user/get";
+import postWorkout from "./req/routes/workout/post";
+import getWorkout from "./req/routes/workout/get";
 
 var app = express();
 
@@ -33,6 +35,20 @@ router.route('/user').post
     function(req : any,res : any)
     {
         getUser(req,res);
+    }
+);
+
+router.route('/workout').post
+(
+    function(req : any,res : any)
+    {
+        postWorkout(req,res);
+    }
+).get
+(
+    function(req : any,res : any)
+    {
+        getWorkout(req,res);
     }
 );
 
