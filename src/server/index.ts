@@ -4,9 +4,8 @@ var bodyParser = require("body-parser");
 var sqlite3 = require('sqlite3').verbose();
 
 //First-party Typescript dependencies
-import User from "./req/user";
-import createUser from "./req/createUser";
-import getUser from "./req/getUser";
+import postUser from "./req/routes/user/post";
+import getUser from "./req/routes/user/get";
 
 var app = express();
 
@@ -27,25 +26,13 @@ router.route('/user').post
 (
     function(req : any,res : any)
     {
-        if(req.query.First_Name &&
-        req.query.Last_Name &&
-        req.query.Email)
-        {
-            //looking for POST /api/user?First_Name=foo&Last_Name=bar&Email=Something
-            var success : boolean = createUser(req.query.First_Name,req.query.Last_Name,req.query.Email);
-            //...
-        }
+        postUser(req,res);
     }
 ).get
 (
     function(req : any,res : any)
     {
-        if(req.query.User_ID)
-        {
-            //looking for GET /api/user?User_ID=something
-            var success : User = getUser(req.query.User_ID);
-            //...
-        }
+        getUser(req,res);
     }
 );
 

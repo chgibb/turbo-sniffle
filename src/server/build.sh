@@ -1,4 +1,4 @@
-#Remove previous artifacts
+#Remove previous bundle
 rm dist/*.js
 printf "Building server\n"
 #Build all typescript files
@@ -8,6 +8,7 @@ printf "Bundling server\n"
 ./node_modules/.bin/browserify index.js --node -o dist/dist.js
 #Remove compiled typescript artifacts
 rm *.js
-rm req/*.js
+cd req
+find . -type f -name '*.js' -delete
 
 
