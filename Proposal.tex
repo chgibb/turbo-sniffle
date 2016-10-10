@@ -1,0 +1,92 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+\title{Turbo-Workout \\ Workout Tracking Application \\ Project Proposal}
+
+\author{Erik Tillberg & Chris Gibb}
+\date{October 6, 2016}
+
+\begin{document}
+
+\maketitle
+
+\section{Application Description}
+
+Turbo-Workout is a mobile-friendly web application that allows the user to keep track of their workouts. Strength and stamina measuring analytics such as time-lines of weight lifted and minutes ran allow the user to track progress, monitor goals, and stay motivated. Users have the ability to generate their own personalized workouts for them to track, or use our built-in recommended workouts for their fitness goals.
+
+\subsection{Feature Set}
+A full application feature set may be seen below. Please note that 'workout' refers to a full session that could target chest and back, legs, shoulders and arms etc. An exercise refers to the specific exercise within the workout (e.g. pushups, pullups etc...)
+\subsubsection{Users}
+\begin{itemize}
+    \item {Register}
+    \item {Login}
+    \item {Logout}
+    \item {View profile page with analytics}
+    \item {Access to default workouts and exercises}
+    \item {Create a workout}
+    \item {Create an exercise}
+\end{itemize}
+
+\subsubsection{Workouts}
+\begin{itemize}
+    \item {Create workout from template}
+    \item {Exercises listed in order of way they should be done}
+    \item {Quickly see previous workouts stats for some exercise}
+    \item {increment reps done/time ran/weight used for some exercise}
+\end{itemize}
+\subsubsection{Exercises}
+\begin{itemize}
+    \item {Existing default exercises}
+    \item {Create a new exercise by specifying name and fields required (reps|weight|time)}
+\end{itemize}
+
+\section{ER-Diagram}
+
+The ER diagram for the system may be seen in Figure \ref{fig:erdiagram}. There is a total of five tables. User, password, workouts, exercise and performed. The reason for separating user and password is to provide the ability to hold the passwords in a separate database for security reasons. In addition, please note that the passwords are hashed repeatedly thousands of times using a secure randomly generated salt.
+
+\begin{figure}[h]
+\caption{ER Diagram for the turbo-workout application}
+\label{fig:erdiagram}
+\includegraphics[width=\textwidth]{ERdiagram}
+\end{figure}
+
+\section{Table Creation Statements}
+
+Below you may see the SQL create statements for all five of the tables
+
+\includegraphics[width=\textwidth]{create}
+
+\section{Database Diagrams}
+
+Figure \ref{fig:table} is a full diagram of the database tables including column names, variable types, primary keys and foreign keys. 
+
+\begin{figure}[h]
+\caption{Database Diagram for the turbo-workout application. Diagram was generated using the SaaS www.genmymodel.com}
+\label{fig:table}
+\includegraphics[width=\textwidth]{tables}
+\end{figure}
+
+\section{Database Queries}
+
+The most important part of the database is to have the ability to access existing data, and insert new data as it appears. Below is a list of queries that will be used in the system, written in english as opposed to SQL.
+
+\begin{enumerate}
+    \item {Insert a new user into user}
+    \item {Insert a users password into password (referencing user)}
+    \item {Inserting a new workout into workouts}
+    \item {Inserting a new exercise into exercise}
+    \item {Inserting a new exercise performance into performed}
+    \item {Updating user name in user table}
+    \item {Updating user password in user table}
+    \item {Updating a workout}
+    \item {Updating an exercise}
+    \item {Reading all workouts for a specific user}
+    \item {Reading all exercises for a specific user and workout}
+    \item {Reading all performances of a specific exercise of a specific workout}
+    \item {Reading all performances of all exercises in a workout}
+    \item {Reading most recent performances of all exercises in a workout}
+\end{enumerate}
+\end{document}
+
