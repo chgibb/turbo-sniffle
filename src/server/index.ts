@@ -40,12 +40,10 @@ router.route('/user').post
 (
     function(req : any,res : any)
     {
-        if(req.query.First_Name &&
-        req.query.Last_Name &&
-        req.query.Email)
+        if(req.query.User_ID)
         {
-            //looking for GET /api/user?First_Name=foo&Last_Name=bar&Email=Something
-            var success : User = getUser(req.query.First_Name,req.query.Last_Name,req.query.Email);
+            //looking for GET /api/user?User_ID=something
+            var success : User = getUser(req.query.User_ID);
             //...
         }
     }
