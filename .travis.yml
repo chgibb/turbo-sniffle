@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - "6"
+install:
+  - sh install.sh
+script:
+  - sh build.sh
+notifications:
+  - email: never
