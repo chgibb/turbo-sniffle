@@ -1,3 +1,4 @@
+set -e
 #Remove previous bundle
 rm dist/*.js
 printf "Building server\n"
