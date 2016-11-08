@@ -57,12 +57,14 @@ router.route('/workout').post
 (
     function(req : any,res : any)
     {
+        //POST /api/workout?Workout_ID=123&User_ID=12&Workout_Name=something&Date_Performed=something
         postWorkout(req,res,db);
     }
 ).get
 (
     function(req : any,res : any)
     {
+        //GET /api/workout?Workout_ID=something
         getWorkout(req,res,db);
     }
 );
