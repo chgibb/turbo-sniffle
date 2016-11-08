@@ -1,0 +1,34 @@
+[
+    [
+        "DROP TABLE IF EXISTS User;"
+    ],
+    [
+        "DROP TABLE IF EXISTS Password;"
+    ],
+    [
+        "DROP TABLE IF EXISTS Workout;"
+    ],
+    [
+        "DROP TABLE IF EXISTS Exercise;"
+    ],
+    [
+        "DROP TABLE IF EXISTS Performed;"
+    ],
+    [
+        "CREATE TABLE User (",
+        "User_ID int NOT NULL PRIMARY KEY,",
+        "First_Name varchar(24) NOT NULL,",
+        "Last_Name varchar(24),",
+        "Created_At date NOT NULL,",
+        "Email varchar(64) NOT NULL",
+        ");"
+    ],
+    [
+        "CREATE TABLE Password(",
+        "User_ID int NOT NULL PRIMARY KEY,",
+        "hash_password varchar(255) NOT NULL,",
+        "salt varchar(8) NOT NULL,",
+        "FOREIGN KEY(User_ID) REFERENCES User(User_ID)",
+        ");"
+    ]
+]

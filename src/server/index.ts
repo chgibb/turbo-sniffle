@@ -9,6 +9,19 @@ import getUser from "./req/routes/user/get";
 import postWorkout from "./req/routes/workout/post";
 import getWorkout from "./req/routes/workout/get";
 
+import loadDDL from "./req/DDL";
+
+let defaultMode : number = sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE;
+
+  let db : any = new sqlite3.Database("database", defaultMode, function(err : any) {
+    if (err) {
+      console.log('Error opening database:', err, err.stack);
+      return;
+    }
+    console.log('Database was opened successfully');
+  });
+loadDDL("sql/DDL.sql",db);
+
 var app = express();
 
 var port = 8080;
@@ -28,13 +41,15 @@ router.route('/user').post
 (
     function(req : any,res : any)
     {
-        postUser(req,res);
+        //POST /api/user?First_Name=foo&Last_Name=bar&Email=Something
+        postUser(req,res,db);
     }
 ).get
 (
     function(req : any,res : any)
     {
-        getUser(req,res);
+        //GET /api/user?User_ID=something
+        getUser(req,res,db);
     }
 );
 
@@ -42,13 +57,13 @@ router.route('/workout').post
 (
     function(req : any,res : any)
     {
-        postWorkout(req,res);
+        postWorkout(req,res,db);
     }
 ).get
 (
     function(req : any,res : any)
     {
-        getWorkout(req,res);
+        getWorkout(req,res,db);
     }
 );
 

@@ -1,5 +1,6 @@
 #Remove previous bundle
 rm dist/*.js
+rm dist/sql/*
 printf "Building server\n"
 #Build all typescript files
 ./node_modules/.bin/tsc
@@ -12,6 +13,7 @@ printf "Bundling server\n"
 if [ $? != 0 ]; then
     exit 1
 fi
+cp -r sql dist
 #Remove compiled typescript artifacts
 rm *.js
 cd req
