@@ -30,5 +30,14 @@
         "salt varchar(8) NOT NULL,",
         "FOREIGN KEY(User_ID) REFERENCES User(User_ID)",
         ");"
+    ],
+    [
+        "CREATE TABLE Workout (",
+        "Workout_ID int NOT NULL PRIMARY KEY,",
+        "User_ID int,",
+        "Workout_Name varchar(32) NOT NULL,",
+        "Date_Performed date,",
+        "FOREIGN KEY(User_ID) REFERENCES User(User_ID)",
+        ");"
     ]
 ]

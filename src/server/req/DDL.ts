@@ -40,6 +40,15 @@ export default function loadDDL(file : string,db : any) : boolean
                     console.log(err);
                 }
             );
+            db.run
+            (
+                "insert into Workout values(000001,000001, 'Push Ups Workout', '2016-Nov-02')"
+                ,[],(err : string)=>
+                {
+                    console.log("In DDL.ts");
+                    console.log(err);
+                }
+            );
         }
     );
     return true;
