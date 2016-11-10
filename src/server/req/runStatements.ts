@@ -7,7 +7,10 @@ export default function runStatements
     objs : Array<number|string>,
     db : 
     {
-        serialize : (func : () => void) => void,
+        serialize : 
+        (
+            func : () => void
+        ) => void,
         get : 
         (
             queries : string,
@@ -37,7 +40,7 @@ export default function runStatements
                 (
                     queries[i].join("\n"),
                     objs,
-                    (err : string, row : Array<any>)=>
+                    (err : string, row : Array<number|string>)=>
                     {
                         if(res)
                             res.send(row);
@@ -51,8 +54,8 @@ export default function runStatements
                             console.log("Succedded executing "+queries[i].join("\n"));
                         }
                     }
-                )
-            };
+                );
+            }
         }
     );
 }
