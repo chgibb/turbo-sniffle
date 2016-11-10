@@ -4,7 +4,7 @@ var sqlite3 = require('sqlite3').verbose();
 var jsonFile = require("jsonfile");
 
 import runStatements from "./runStatements";
-export default function loadDDL(file : string,db : any) : boolean
+export default function loadDDL(db : any) : boolean
 {
     runStatements
     (

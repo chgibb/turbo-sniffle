@@ -9,18 +9,12 @@ import getUser from "./req/routes/user/get";
 import postWorkout from "./req/routes/workout/post";
 import getWorkout from "./req/routes/workout/get";
 
+import initDB from "./req/initDB";
 import loadDDL from "./req/DDL";
 
-let defaultMode : number = sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE;
 
-  let db : any = new sqlite3.Database("database", defaultMode, function(err : any) {
-    if (err) {
-      console.log('Error opening database:', err, err.stack);
-      return;
-    }
-    console.log('Database was opened successfully');
-  });
-loadDDL("sql/DDL.sql",db);
+let db : any = initDB("database",sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE);
+loadDDL(db);
 
 var app = express();
 
