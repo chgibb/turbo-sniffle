@@ -2,9 +2,17 @@ import * as fs from "fs";
 
 var sqlite3 = require('sqlite3').verbose();
 var jsonFile = require("jsonfile");
+
+import runStatements from "./runStatements";
 export default function loadDDL(file : string,db : any) : boolean
 {
-    let rawDDL : Array<Array<string>> = new Array<Array<string>>();
+    runStatements
+    (
+        "sql/DDL.sql.json",
+        [],
+        db
+    );
+    /*let rawDDL : Array<Array<string>> = new Array<Array<string>>();
     rawDDL = jsonFile.readFileSync("sql/DDL.sql.json");
     db.serialize
     (
@@ -26,7 +34,7 @@ export default function loadDDL(file : string,db : any) : boolean
                 );
             }
         }
-    );
+    );*/
     db.serialize
     (
         ()=>
