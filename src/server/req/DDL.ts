@@ -12,6 +12,12 @@ export default function loadDDL(file : string,db : any) : boolean
         [],
         db
     );
+    runStatements
+    (
+        "sql/insertTestData.sql.json",
+        [],
+        db
+    );
     /*let rawDDL : Array<Array<string>> = new Array<Array<string>>();
     rawDDL = jsonFile.readFileSync("sql/DDL.sql.json");
     db.serialize
@@ -35,6 +41,7 @@ export default function loadDDL(file : string,db : any) : boolean
             }
         }
     );*/
+    /*
     db.serialize
     (
         ()=>
@@ -58,6 +65,6 @@ export default function loadDDL(file : string,db : any) : boolean
                 }
             );
         }
-    );
+    );*/
     return true;
 }

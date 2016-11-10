@@ -1,0 +1,8 @@
+[
+    [
+        "insert into User values(000001,'erik', 'tillberg', '2016-Nov-02', 'swag@lakeheadu.ca');"
+    ],
+    [
+        "insert into Workout values(000001,000001, 'Push Ups Workout', '2016-Nov-02')"
+    ]
+]
