@@ -16,7 +16,6 @@ export default function post(req : any, res : any,db : any) : void
         user.Created_At = new Date().toDateString();
         success = createUser(req,res,user,db);
         
-        //...
     }
     res.send(success);
     if(success)
